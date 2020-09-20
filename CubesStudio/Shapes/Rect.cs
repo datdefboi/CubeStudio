@@ -6,13 +6,14 @@ using System.Text;
 
 namespace CubesStudio.Shapes
 {
-    class Rectangle : Shape
+    class Rect : Shape
     {
-        public Rectangle(int x, int y, int w, int h) : base(x, y, w, h) { }
+        public Rect(int x, int y, int w, int h) : base(x, y, w, h) { }
 
         public override void Render(Graphics g)
         {
-            g.FillRectangle(Brushes.Black, x, y, w, h);
+            g.FillRectangle(new SolidBrush(Fill), x, y, w, h);
+            g.DrawRectangle(new Pen(Stroke, strokeWidth), x, y, w, h);
         }
     }
 }
