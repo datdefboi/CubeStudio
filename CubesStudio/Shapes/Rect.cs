@@ -12,8 +12,8 @@ namespace CubesStudio.Shapes
 
         public override void Render(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(Fill), x, y, w, h);
-            g.DrawRectangle(new Pen(Stroke, strokeWidth), x, y, w, h);
+            g.FillRectangle(new SolidBrush(Fill), X, Y, w, h);
+            g.DrawRectangle(new Pen(Stroke, strokeWidth), X, Y, w, h);
         }
     }
 }

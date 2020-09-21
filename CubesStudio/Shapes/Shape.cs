@@ -5,11 +5,14 @@ namespace CubesStudio
 {
     abstract class Shape
     {
-        protected int x, y, w, h;
         protected int strokeWidth;
 
-        public int X => x;
-        public int Y => y;
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public int Order { get; set; } = 0;
+
+        protected int w, h;
         public int Width => w;
         public int Height => h;
 
@@ -19,23 +22,22 @@ namespace CubesStudio
 
         public Shape(int x, int y, int w, int h)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
             this.w = w;
             this.h = h;
         }
-
-        public void MoveTo(int x, int y)
+        public void Resize(int width, int height)
         {
-            if (x < 0 || y < 0)
+            if (width < 0 || height < 0)
                 throw new ArgumentOutOfRangeException();
 
-            this.x = x;
-            this.y = y;
+            this.w = width;
+            this.h = height;
         }
         public void SetStrokeWidth(int sw)
         {
-            if (sw < 1)
+            if (sw < 0)
                 throw new ArgumentOutOfRangeException();
 
             strokeWidth = sw;
